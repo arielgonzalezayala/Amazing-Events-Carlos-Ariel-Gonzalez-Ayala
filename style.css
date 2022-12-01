@@ -1,0 +1,238 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    width: 99vw;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    width: 100vw;
+    flex: 0;
+}
+.navbar {
+    width: 100vw;
+    height: 6rem;
+    background-color: rgba(128, 128, 128, 0.668) !important;
+}
+
+#navbarSupportedContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.navbar-nav {
+    gap: 2rem;
+    align-items: center;
+    margin-right: 3rem;
+}
+
+.navbar-nav>li {
+    border: 1px solid black;
+    width: 9rem;
+    text-align: center;
+    background-color: rgb(215, 208, 208);
+}
+
+.navbar-nav a:hover {
+    background-color: black;
+    color: red;
+}
+
+#navActive {
+    color: black;
+}
+
+#navActive:hover {
+    color: red;
+}
+
+#logo {
+    width: 8rem;
+    background-color: black;
+    padding: 1rem;
+    border: 2px solid red;
+    border-radius: 2rem;
+}
+
+h1 {
+    text-align: center;
+    padding: 2rem;
+    font-weight: bolder;
+    letter-spacing: 1rem;
+    font-size: 4rem;
+    background-color: rgb(199, 193, 193);
+}
+
+main {
+    flex: 1;
+}
+
+#contactDiv {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+h2 {
+    padding: 1rem;
+    align-self: center;
+}
+
+.card-img-top {
+    padding: 1rem;
+}
+
+.row {
+    gap: 2rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.card-body {
+    height: 17rem;
+}
+
+.contactLogo {
+    width: 3rem;
+    align-self: center;
+}
+
+form {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#formButton {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+footer {
+    flex: 0;
+    padding-top: 1rem;
+    background-color: rgb(199, 193, 193);
+    height: 10rem;
+    display: flex;
+    width: 100vw;
+    justify-content: space-between;
+}
+
+#tableMain {
+    display: flex;
+    justify-content: center;
+}
+
+table {
+    width: 90%;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+td, th, thead, tbody, tr {
+    border: 2px solid black;
+}
+
+th {
+    background-color: rgb(171, 165, 165);
+    text-align: center;
+}
+
+#detailsMain {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: fit-content;
+}
+
+#detailsCard {
+    padding: 2rem;
+    display: flex;
+    margin: 1rem;;
+    gap: 1rem;
+    border: 1px solid black;
+}
+
+#detailsSection {
+    border: 1px solid #e2e2e2;
+    margin: 1rem;
+    height: 280px;
+    width: 280px;
+    align-self: center;
+    text-indent: 1rem;
+}
+
+#detailsSection p {
+    margin: 0;
+}
+
+#detailsImg {
+    width: 280px;
+    height: 280px;
+    align-self: center;
+    -webkit-box-shadow: -6px -1px 11px 0px rgba(0,0,0,0.74); 
+    box-shadow: -6px -1px 11px 0px rgba(0,0,0,0.74);
+}
+
+@media screen and (max-width:425px) {
+    table {
+        font-size: 1rem;
+    }
+    #detailsImg {
+        width: 50%;
+        height: 50%;
+        object-fit: contain;
+    }
+    #detailsSection {
+        text-align: center;
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    #detailsCard {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .navbar {
+        height: fit-content;
+    }
+    #logo {
+        width: 10rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #navbarSupportedContent {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 1rem;
+        font-size: .9rem;
+    }
+    .navbar-nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-right: 0;
+    }
+    .navbar-nav>li {
+        width: 5rem;
+        align-items: center;
+        height: 3.4rem;
+    }
+    .navbar-nav>li:hover {
+        background-color: black;
+        color: red;
+    }
+}
