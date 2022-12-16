@@ -73,6 +73,7 @@ h1 {
 
 main {
     flex: 1;
+    width: 100vw;
 }
 
 #contactDiv {
@@ -84,6 +85,10 @@ main {
 h2 {
     padding: 1rem;
     align-self: center;
+}
+
+#cardsContainer {
+    width: 100%;
 }
 
 .card-img-top {
@@ -151,6 +156,26 @@ td, th, thead, tbody, tr {
 th {
     background-color: rgb(171, 165, 165);
     text-align: center;
+}
+
+.searchBar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+#checkboxContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+#noEvents {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #detailsMain {

@@ -1,5 +1,3 @@
-const cardsContainer = document.getElementById("cardsContainer")
-
 const pastEvents = []
 for (let j = 0; j < data["events"].length; j++) {
     let event = data["events"][j]
@@ -8,43 +6,22 @@ for (let j = 0; j < data["events"].length; j++) {
     }
 }
 
-for (let i = 0; i < pastEvents.length; i++) {
-    // crear evento
-    let event = pastEvents[i]
-    // crear la card
-    let card = document.createElement("div")
-    card.classList.add("card")
-    // crear la imagen
-    let img = document.createElement("img")
-    img.setAttribute("alt", event.name)
-    img.setAttribute("src", event.image)
-    img.classList.add("card-img-top")
-    card.appendChild(img)
-    // crear la card body
-    let cardBody = document.createElement("div")
-    cardBody.classList.add("card-body")
-    // crear titulo
-    let cardTitle = document.createElement("h5")
-    cardTitle.classList.add("card-title")
-    cardTitle.textContent = event.name
-    cardBody.appendChild(cardTitle)
-    //crear descripcion
-    let cardDescription = document.createElement("p")
-    cardDescription.classList.add("card-text")
-    cardDescription.textContent = event.description
-    cardBody.appendChild(cardDescription)
-    // crear precio
-    let price = document.createElement("p")
-    price.classList.add("card-text")
-    price.textContent = `Price: $${event.price}`
-    cardBody.appendChild(price)
-    //crear boton
-    let button = document.createElement("a")
-    button.setAttribute("href", "./details.html")
-    button.classList.add("btn")
-    button.classList.add("btn-primary")
-    button.textContent = "Details"
-    cardBody.appendChild(button)
-    card.appendChild(cardBody)
-    cardsContainer.appendChild(card)
+crearCheckbox(pastEvents)
+renderCards(pastEvents)
+
+
+//Event Listener para los checkbox
+checkboxContainer.addEventListener("change", handleChangeBox)
+
+function handleChangeBox(e) {
+    handleMerge(pastEvents)
 }
+
+
+//Event Listener para el search input
+searchBar.addEventListener("input", handleChange)
+
+//Debo arreglar un bug en el cual debo presionar backspace una vez extra al borrar todos los caracteres del input search
+function handleChange(e) {
+    handleMerge(pastEvents)
+} 
