@@ -33,6 +33,7 @@ function crearCheckbox(events) {
 
 function renderCards(events) {
     cardsContainer.innerHTML = ""
+    //en caso de no existir ninguna card en la página, se muestra este mensaje
     if (events.length === 0) {
         cardsContainer.innerHTML = `<p id="noEvents" >There are no events to display</p>`
     }
@@ -66,7 +67,7 @@ function renderCards(events) {
         cardBody.appendChild(price)
         // crear el boton
         let button = document.createElement("a")
-        button.setAttribute("href", "./details.html")
+        button.setAttribute("href", `./details.html?id=${event._id}`)
         button.classList.add("btn")
         button.classList.add("btn-primary")
         button.textContent = "Details"
@@ -77,7 +78,6 @@ function renderCards(events) {
 }
 
 function handleMerge(array) {
-
     // filtro basado en checkboxes
     let checkboxes = checkboxContainer.querySelectorAll(".form-check-input")
     console.log(checkboxes);
@@ -93,7 +93,6 @@ function handleMerge(array) {
             checkboxFilter.push(resultado)
         }
     }
-
     // filtro basado en búsqueda
     let value = searchBar.value.toLowerCase()
     console.log(value)
@@ -106,3 +105,7 @@ function handleMerge(array) {
     }
     renderCards(searchFilter)
 } 
+
+//En ciertos casos, se me presentó un bug donde, al ingresar el texto en el search bar y luego borrarlo, las cards no
+//se renderizan hasta presionar backspace una vez más. Este bug no siempre se hace presente y parece estar relacionado
+//con la memoria del navegador

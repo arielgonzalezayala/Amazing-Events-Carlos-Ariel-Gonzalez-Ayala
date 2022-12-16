@@ -16,7 +16,6 @@ function handleChangeBox(e) {
 //Event Listener para el search input
 searchBar.addEventListener("input", handleChange)
 
-//Debo arreglar un bug en el cual debo presionar backspace una vez extra al borrar todos los caracteres del input search
 function handleChange(e) {
     handleMerge(resultados)
 } 
