@@ -1,6 +1,14 @@
 const cardsContainer = document.getElementById("cardsContainer")
 const checkboxContainer = document.getElementById("checkboxContainer")
 const searchBar = document.getElementById("searchBar")
+const largCapacity = document.getElementById("largestCapacity")
+const lowPercent = document.getElementById("lowestPercentage")
+const highPercent = document.getElementById("highestPercentage")
+const tableCategories = document.getElementById("tableCategories")
+const tableFutureCategories = document.getElementById("tableFutureCategories")
+const tableError = document.getElementById("tableError")
+const detailsMain = document.getElementById("detailsMain")
+
 
 function getCategories(events) {
     let nuevoArray = []
@@ -8,6 +16,61 @@ function getCategories(events) {
         nuevoArray.push(event.category)
     });
     return [...new Set(nuevoArray)]
+}
+
+function pastStats (events) {
+    let tabla = ""
+    events.forEach(element => {
+        if(element.date.includes("2021")) {
+            tabla += 
+            `<tr>
+            <td> ${element.category}</td>
+            <td> $${element.assistance * element.price} </td>
+            <td> ${element.assistance / 100}%</td>`
+        }
+    })
+    tableCategories.innerHTML = tabla
+}
+
+function upcomingStats (events) {
+    let tabla = ""
+    events.forEach(element => {
+        if(element.date.includes("2022")) {
+            tabla += `
+            <tr>
+            <td> ${element.category}</td>
+            <td> $${element.estimate * element.price} </td>
+            <td> ${element.estimate / 100}%</td>`
+        }
+    })
+    tableFutureCategories.innerHTML = tabla
+}
+function largestCapacity (data) {
+    let eventsCapacity = data.map(element => (element.capacity))
+    return Math.max(...eventsCapacity)
+}
+
+function lowestPercentage (data) {
+    let lowestAssistance = data.map(element => (element.assistance) || (element.estimate))
+    let capacity = data.map (element => (element.capacity))
+    return ((Math.min(...lowestAssistance) / parseFloat(capacity)) * 100)
+}
+
+function highestPercentage (data) {
+    let highestAssistance = data.map(element => (element.assistance) || (element.estimate))
+    let capacity = data.map (element => (element.capacity))
+    return ((Math.max(...highestAssistance) / parseFloat(...capacity)) * 100)
+}
+
+
+
+function filterByYear(objects, year) {
+    let events = objects.filter(function(object) {
+        if ( object.date.slice(0, 4) == year) {
+            return object
+        }
+    })
+    return events
 }
 
 function crearCheckbox(events) {
@@ -30,6 +93,16 @@ function crearCheckbox(events) {
         checkboxContainer.appendChild(checkboxDiv)
     })
 }
+
+/* function renderPastTable (fn, events) {
+    tableCategories.innerHTML = ""
+    fn;
+    events.forEach((event) => {
+    let td = document.createElement("td")
+    td.textContent = ${event.name}
+    tableCategories.appendChild(td)
+    })
+} */
 
 function renderCards(events) {
     cardsContainer.innerHTML = ""

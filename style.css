@@ -163,8 +163,9 @@ td, th, thead, tbody, tr {
 }
 
 th {
-    background-color: rgb(171, 165, 165);
+    background-color: rgb(67, 29, 29);
     text-align: center;
+    color: #e2e2e2;
 }
 
 .searchBar {
@@ -182,6 +183,22 @@ th {
 }
 
 #noEvents {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tableTitles {
+    background-color: bisque;
+    text-align: center;
+    font-weight: bold;
+}
+
+td {
+    background-color: floralwhite;
+}
+
+#errorCode {
     width: 50%;
     margin-left: auto;
     margin-right: auto;

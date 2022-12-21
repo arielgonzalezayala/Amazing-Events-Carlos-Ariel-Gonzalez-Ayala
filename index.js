@@ -1,11 +1,29 @@
-crearCheckbox(data["events"])
+fetch( "https://amazing-events.onrender.com/api/events" )
+    .then(res => res.json())
+    .then(data => {
+        let resultados = [...data["events"]]
+        crearCheckbox(resultados)
+        renderCards(resultados)
+        checkboxContainer.addEventListener("change", handleChangeBox)
+        function handleChangeBox(e) {
+            handleMerge(resultados)
+        }
+        searchBar.addEventListener("input", handleChange)
+        function handleChange(e) {
+            handleMerge(resultados)
+        } 
+    })
+    .catch(error => {
+        cardsContainer.innerHTML = `<h3 id="errorCode">ERROR: File not found. Please try again.</h3>`
+    })
 
 
 //Declaro una variable con un spread operator para crear un array auxiliario que sirva a la hora de filtrar resultados
-let resultados = [...data["events"]]
+
+/* let resultados = [...data["events"]] */
 
 
-//Event Listener para los checkbox
+/* //Event Listener para los checkbox
 checkboxContainer.addEventListener("change", handleChangeBox)
 
 function handleChangeBox(e) {
@@ -18,7 +36,7 @@ searchBar.addEventListener("input", handleChange)
 
 function handleChange(e) {
     handleMerge(resultados)
-} 
+}  */
 
 
 function handleMerge(array) {
@@ -53,4 +71,4 @@ function handleMerge(array) {
 } 
 
 
-renderCards(resultados)
+/* renderCards(resultados) */
